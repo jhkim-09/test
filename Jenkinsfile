@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-		git branch: 'main', credentialsId: 'git', url: 'git@github.com:jhkim-09/test.git'
+		git branch: 'main', credentialsId: 'git', url: 'https://github.com/jhkim-09/test.git'
             }
         }
         stage('Build') {
