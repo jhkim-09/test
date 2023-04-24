@@ -10,7 +10,7 @@ pipeline {
     }
     stage('Build') {
       agent {
-        docker { image 'kimjuhyo/maven:test' }
+        docker { image 'maven:3-openjdk-8' }
       }
       steps {
         sh 'mvn -DskipTests=true clean package'
@@ -18,7 +18,7 @@ pipeline {
     }
     stage('Test') {
       agent {
-        docker { image 'maven:3.8.1-adoptopenjdk-11' }
+        docker { image 'maven:3-openjdk-8' }
       }
       steps {
         sh 'mvn test'
@@ -45,7 +45,9 @@ pipeline {
         }
     }
     stage('Run Docker Container') {
-        agent any
+        agent {
+		docker { image 'docker:dind' }
+	}
         steps {
             sh 'docker -H tcp://192.168.56.10:2375 container run -d --name myweb -p 80:8080 kimjuhyo/docker-cicd-tomcat:$BUILD_NUMBER'
         }
