@@ -32,7 +32,7 @@ spec:
     }
   }
   environment {
-    imageName = "kimjuhyo/docker-cicd-tomcat-test"
+    imageName = "kimjuhyo/cicd-kaniko"
   }
   stages {
     stage('Checkout') {
