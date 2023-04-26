@@ -33,6 +33,7 @@ spec:
   }
   environment {
     imageName = "kimjuhyo/cicd-kaniko"
+    projectName = "kaniko"
   }
   stages {
     stage('Checkout') {
@@ -59,7 +60,7 @@ spec:
     stage('Tag Docker Image') {
       steps {
         container('kaniko') {
-          sh 'executor --context=dir:///home/jenkins/agent/workspace/kube_pipeline/ --destination=$imageName:$BUILD_NUMBER --destination=$imageName:latest'
+          sh 'executor --context=dir:///home/jenkins/agent/workspace/$projectName/ --destination=$imageName:$BUILD_NUMBER --destination=$imageName:latest'
         }
       }
     }
