@@ -50,7 +50,7 @@ pipeline {
           sh "git config --global --add safe.directory ${workspace}"
           sh "git config --global user.name ${gitUser}"
           sh "git config --global user.email ${gitEmail}"
-          sh 'sed -i "s/image:.*/image: ${dockerName}\/${dockerRepo}:${BUILD_NUMBER}/g" deployment.yaml'
+          sh 'sed -i "s/image:.*/image: ${dockerName}\\/${dockerRepo}:${BUILD_NUMBER}/g" deployment.yaml'
           sh 'git add deployment.yaml'
           sh 'git commit -m "New Build ${BUILD_NUMBER}"'
           withCredentials([gitUsernamePassword(credentialsId: 'github-credential', gitToolName: 'Default')]) {
