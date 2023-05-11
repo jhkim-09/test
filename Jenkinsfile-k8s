@@ -33,7 +33,7 @@ spec:
   }
   environment {
     imageName = "kimjuhyo/cicd-kaniko"
-    projectName = "kube_pipeline"
+    projectName = "busan-pipeline"
   }
   stages {
     stage('Checkout') {
