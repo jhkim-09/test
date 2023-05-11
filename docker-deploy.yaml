@@ -1,7 +1,0 @@
----
-- name: using jenkins deploy with ansible
-  hosts: localhost
-  tasks:
-  - name: Run container
-    image: 
-
