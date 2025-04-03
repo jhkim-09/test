@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: hello-world
-        image: kaniko-test
+        image: kimjuhyo/kaniko-test:7
         ports:
         - containerPort: 8080
